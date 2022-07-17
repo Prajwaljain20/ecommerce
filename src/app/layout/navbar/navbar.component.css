@@ -1,0 +1,31 @@
+.navbar-brand {
+  margin-left: 70px;
+}
+.dropdown-toggle {
+  margin-right: 90px;
+}
+.icon {
+  color: white;
+  font-size: 1.4rem;
+}
+.dropdown-menu {
+  position: absolute;
+  margin-top: 20%;
+}
+.dropdown:hover > .dropdown-menu {
+  display: block;
+}
+.link {
+  text-decoration: none;
+  cursor: pointer;
+}
+.user-name {
+  min-height: 28px;
+}
+.spinner-grow {
+  width: 29px;
+  height: 28px;
+}
+.pill {
+  font-size: 12px;
+}

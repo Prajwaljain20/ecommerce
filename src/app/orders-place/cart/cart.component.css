@@ -1,0 +1,55 @@
+.example-container {
+  width: 95%;
+  min-height: 500px;
+  max-height: 500px;
+}
+.jumbotron {
+  margin-bottom: 60px;
+  font-size: 2em;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+}
+.scroll {
+  max-height: 350px;
+  overflow: scroll;
+}
+.product-img {
+  width: 60px;
+  height: 60px;
+  border-radius: 20px;
+}
+.right {
+  text-align: right;
+}
+th,
+td {
+  text-align: center;
+}
+a {
+  text-decoration: none;
+}
+.operation {
+  border-radius: 50px;
+  font-size: 20px;
+  margin: 0 15px;
+}
+.shop {
+  font-size: 6em;
+}
+.center {
+  margin-left: 44%;
+}
+.no-cart {
+  width: 90%;
+}
+.last-row {
+  height: 4em;
+  border-bottom: none;
+}
+.quantity {
+  width: 30%;
+}
+@media screen and (max-width: 762px) {
+  .operation {
+    margin: 0 0;
+  }
+}

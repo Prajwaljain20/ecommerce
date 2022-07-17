@@ -1,0 +1,50 @@
+<div>
+<side-nav (search)="search($event)"></side-nav>
+  <div class="d-flex justify-content-center text-primary" *ngIf="loading">
+    <div class="spinner-border" role="status">
+      <span class="visually-hidden">Loading...</span>
+    </div>
+  </div>
+  <div *ngIf="!loading">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Price</th>
+          <th></th>
+          <th></th>
+        </tr>
+      </thead>
+
+      <tbody *ngIf="searchProducts.length > 0; else noProduct">
+        <tr *ngFor="let product of searchProducts">
+          <td>{{ product.name }}</td>
+          <td>{{ product.price }}</td>
+          <td>
+            <a [routerLink]="[product.id]"
+              ><i class="bi bi-pencil-square"></i
+            ></a>
+          </td>
+          <td (click)="confirmDelete(product.id, product.name)">
+            <i class="bi bi-trash"></i>
+          </td>
+        </tr>
+      </tbody>
+      <ng-template #noProduct>
+        <tr>
+          Seems like No Product Available
+        </tr>
+      </ng-template>
+    </table>
+  </div>
+</div>
+<div class="modal" [ngStyle]="{ display: displayModal }">
+  <div class="modal-content bg-danger text-light btns">
+    <h1>Delete</h1>
+    <hr />
+    <p>{{ productName }}</p>
+    <h1>Are you sure?</h1>
+    <h2 class="btn btn-warning" (click)="delete()">Yes</h2>
+    <h2 class="btn btn-secondary" (click)="close()">No</h2>
+  </div>
+</div>

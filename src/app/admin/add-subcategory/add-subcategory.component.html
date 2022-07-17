@@ -1,0 +1,58 @@
+<div class="row">
+    <div class="col-lg-7">
+      <div class="form">
+        <form [formGroup]="form" (ngSubmit)="onSubmit()">
+            <div class="form-group row">
+                <label for="categoryName" class="col-sm-2 col-form-label">
+                  Category Name
+                </label>
+                <div class="col-sm-10">
+                  <select
+                    (change)="getSubcategory()"
+                    class="form-select"
+                    aria-label="Default select example"
+                    formControlName="category">
+                    <option
+                      *ngFor="let category of category$; index as i"
+                      [value]="category.id">
+                      {{ category.name }}
+                    </option>
+                  </select>
+                </div>
+              </div>
+          <div class="form-group row">
+            <label for="inputName3" class="col-sm-2 col-form-label">
+              Sub-Category Name
+            </label>
+            <div class="col-sm-10">
+              <input
+                type="text"
+                class="form-control"
+                id="inputName3"
+                formControlName="name"
+                placeholder="Enter Subcategory Name"/>
+            </div>
+          </div>
+          <div class="form-group row">
+            <div class="col-sm-10">
+              <button
+                type="submit"
+                class="btn btn-success"
+                [disabled]="form.invalid">
+                Add
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+        <div class="col-lg-3">
+            <div class="card">
+                <div *ngFor="let item of items">
+                    {{item}}
+                </div>
+            </div>
+        </div>
+  </div>
+  
+  

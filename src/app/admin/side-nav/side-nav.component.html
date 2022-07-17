@@ -1,0 +1,26 @@
+<div
+  [ngStyle]="{
+    width: mySideNav
+  }"
+  class="sidebar bg-primary text-dark">
+  <a class="closebtn" (click)="closeNav()">&times;</a>
+  <a routerLink="/admin-users">Users</a>
+  <a class="drop" (click)="display=='none'?display='block':display='none'">Add
+    <span class="dropdown-toggle"></span>
+  </a>
+  <li class="dropdown-container" [ngStyle]="{display:display}">
+    <a routerLink="new">Product</a>
+    <a routerLink="category">Category</a>
+    <a routerLink="sub-category">Subcategory</a>
+  </li>
+</div>
+<div [ngStyle]="{ marginLeft: main }" id="main">
+  <div class="hstack">
+    <span class="btn btn-primary" (click)="openNav()">&#9776; </span>
+    <input
+      type="search"
+      class="input-group form-control"
+      #query
+      placeholder="Search"
+      (keyup)="searchbar(query.value)"/>
+  </div>

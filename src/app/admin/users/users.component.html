@@ -1,0 +1,40 @@
+<div class="d-flex justify-content-center loading text-primary" *ngIf="loading">
+  <div class="spinner-border" role="status">
+    <span class="visually-hidden">Loading...</span>
+  </div>
+</div>
+<div
+  *ngIf="!loading && users.length > 0"
+  class="example-container shadow-lg p-3 mb-5 bg-body rounded">
+  <h1 class="jumbotron text-center sticky-top">Users</h1>
+  <side-nav (search)="search($event)"></side-nav>
+  <div class="scroll">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Admin</th>
+          <th>Created</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let user of searchUsers">
+          <td>{{ user.uid }}</td>
+          <td>{{ user.name }}</td>
+          <td>{{ user.email }}</td>
+          <td>{{ user.isAdmin ? "Yes" : "No" }}</td>
+          <td>{{ user.created }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<div *ngIf="users.length == 0 && !loading" class="no-cart">
+  <div class="example-container shadow-lg p-3 mb-5 bg-body rounded">
+    <h1 class="text-center">Seems like you have added no products</h1>
+    <a routerLink="/product"><p class="btn btn-dark center">Shop Now</p></a>
+    <i class="bi bi-shop-window shop center"></i>
+  </div>
+</div>

@@ -1,0 +1,38 @@
+.example-container {
+  width: 95%;
+  min-height: 500px;
+  max-height: 500px;
+}
+.scroll {
+  max-height: 350px;
+  overflow: scroll;
+}
+.jumbotron {
+  margin-bottom: 80px;
+  font-size: 2em;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+}
+.product-img {
+  width: 130px;
+  height: 100px;
+  border-radius: 20px;
+}
+.right {
+  text-align: right;
+}
+a {
+  text-decoration: none;
+}
+i {
+  font-size: 6em;
+}
+.icon {
+  font-size: 1.5em;
+  cursor: pointer;
+}
+.center {
+  margin-left: 44%;
+}
+.no-cart {
+  width: 90%;
+}

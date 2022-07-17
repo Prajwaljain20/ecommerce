@@ -1,0 +1,222 @@
+<div class="row" *ngIf="!loading">
+  <div class="col-lg-7">
+    <div class="form">
+      <form [formGroup]="forms" (ngSubmit)="onSubmit()">
+        <div class="form-group row">
+          <label for="inputName3" class="col-sm-2 col-form-label">
+            Product Name
+            </label>
+          <div class="col-sm-10">
+            <input
+              type="text"
+              class="form-control"
+              id="inputName3"
+              formControlName="name"
+              [(ngModel)]="item.name"
+              placeholder="Enter Product Name"/>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="inputNumber3" class="col-sm-2 col-form-label">
+            Price
+          </label>
+          <div class="col-sm-10">
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <div class="input-group-text">&#8377;</div>
+              </div>
+              <input
+                type="number"
+                class="form-control"
+                id="inputNumber3"
+                formControlName="price"
+                [(ngModel)]="item.price"
+                min="0"/>
+            </div>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="categoryName" class="col-sm-2 col-form-label">
+            Category
+          </label>
+          <div class="col-sm-10">
+            <select
+              class="form-select"
+              aria-label="Default select example"
+              formControlName="category"
+              [(ngModel)]="item.category">
+              <option
+                *ngFor="let category of category$; index as i"
+                [value]="category.id">
+                {{ category.name }}
+              </option>
+            </select>
+          </div>
+        </div>
+        <div *ngIf="Category == 'appliance'">
+          <div class="form-group row">
+            <label for="subcategoryName" class="col-sm-2 col-form-label">
+              Subcategory
+            </label>
+            <div class="col-sm-10">
+              <select
+                class="form-select"
+                aria-label="Default select example"
+                formControlName="subcategory"
+                [(ngModel)]="item.subcategory">
+                <option
+                  *ngFor="let subcategory of subcategory$[0].name"
+                  [value]="subcategory">
+                  {{ subcategory }}
+                </option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div *ngIf="Category == 'electronic'">
+          <div class="form-group row">
+            <label for="subcategoryName" class="col-sm-2 col-form-label">
+              Subcategory
+            </label>
+            <div class="col-sm-10">
+              <select
+                class="form-select"
+                aria-label="Default select example"
+                formControlName="subcategory"
+                [(ngModel)]="item.subcategory">
+                <option
+                  *ngFor="let subcategory of subcategory$[1].name"
+                  [value]="subcategory">
+                  {{ subcategory }}
+                </option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div *ngIf="Category == 'fashion'">
+          <div class="form-group row">
+            <label for="subcategoryName" class="col-sm-2 col-form-label">
+              Subcategory
+            </label>
+            <div class="col-sm-10">
+              <select
+                class="form-select"
+                aria-label="Default select example"
+                formControlName="subcategory"
+                [(ngModel)]="item.subcategory">
+                <option
+                  *ngFor="let subcategory of subcategory$[2].name"
+                  [value]="subcategory">
+                  {{ subcategory }}
+                </option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div *ngIf="Category == 'home'">
+          <div class="form-group row">
+            <label for="subcategoryName" class="col-sm-2 col-form-label">
+              Subcategory
+            </label>
+            <div class="col-sm-10">
+              <select
+                class="form-select"
+                aria-label="Default select example"
+                formControlName="subcategory"
+                [(ngModel)]="item.subcategory">
+                <option
+                  *ngFor="let subcategory of subcategory$[3].name"
+                  [value]="subcategory">
+                  {{ subcategory }}
+                </option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div *ngIf="Category == 'mobile'">
+          <div class="form-group row">
+            <label for="subcategoryName" class="col-sm-2 col-form-label">
+              Subcategory
+            </label>
+            <div class="col-sm-10">
+              <select
+                class="form-select"
+                aria-label="Default select example"
+                formControlName="subcategory"
+                [(ngModel)]="item.subcategory">
+                <option
+                  *ngFor="let subcategory of subcategory$[4].name"
+                  [value]="subcategory">
+                  {{ subcategory }}
+                </option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="inputName3" class="col-sm-2 col-form-label">
+            Image URL
+          </label>
+          <div class="col-sm-10">
+            <input
+              type="url"
+              class="form-control"
+              id="inputName3"
+              formControlName="image"
+              placeholder="Enter Product URL"
+              [(ngModel)]="item.image"/>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="inputName3" class="col-sm-2 col-form-label">
+            Description
+          </label>
+          <div class="col-sm-10">
+            <textarea 
+              class="form-control"
+              id="inputName3"
+              formControlName="description"
+              placeholder="Enter Product Description"
+              [(ngModel)]="item.description"
+              cols="30" rows="10"></textarea>
+          </div>
+        </div>
+        <div class="form-group row">
+          <div class="col-sm-10">
+            <button
+              type="submit"
+              class="btn btn-success"
+              [disabled]="forms.invalid">
+              <span [textContent]="id ? 'Update' : 'Add'"></span>
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="col-lg-5">
+    <div>
+      <div class="card">
+        <img [src]="item.image" alt="" class="card-img-top" />
+        <div class="card-body">
+          <h4 class="card-title">{{ item.name }}</h4>
+          <p class="card-text">
+            {{ item.price | currency: "INR":"symbol":"1.0" }}
+          </p>
+          <p class="card-text">
+            {{ item.category
+            }}<span *ngIf="item.subcategory">>>{{ item.subcategory }}</span>
+          </p>
+          <p class="card-text">
+            {{ item.description }}
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="d-flex justify-content-center text-primary loading" *ngIf="loading">
+  <div class="spinner-border" role="status">
+    <span class="visually-hidden">Loading...</span>
+  </div>
+</div>

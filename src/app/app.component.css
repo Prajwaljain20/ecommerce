@@ -1,0 +1,17 @@
+* {
+  font-size: 1.2em;
+}
+button {
+  margin: 10%;
+}
+input {
+  margin-top: 50%;
+}
+.big-container {
+  margin-top: 90px;
+  margin-left: 6%;
+  min-height: 81%;
+}
+.fade {
+  transition: opacity 0.5s linear !important;
+}

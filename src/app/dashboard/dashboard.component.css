@@ -1,0 +1,29 @@
+.card-img-top {
+  width: 100%;
+  height: 50%;
+}
+.card {
+  border: none;
+}
+a {
+  text-decoration: none;
+}
+.container {
+  margin-left: 8%;
+}
+.dropdown:hover > .dropdown-menu {
+  display: block;
+}
+.dropdown-menu {
+  position: absolute;
+  margin-top: -16px;
+}
+.carousel-img {
+  width: 95%;
+  height: 400px;
+  margin-bottom: 20px;
+}
+.whole {
+  margin: 0 0 20px 0;
+  width: 95%;
+}

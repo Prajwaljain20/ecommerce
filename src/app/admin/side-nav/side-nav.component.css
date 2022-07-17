@@ -1,0 +1,60 @@
+.input-group {
+  margin: 10px;
+  width: 40%;
+}
+.sidebar {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  overflow-x: hidden;
+  padding-top: 60px;
+  transition: 0.5s;
+}
+.closebtn {
+  margin-top: -20px;
+}
+.sidebar a,
+.dropdown-tgl {
+  padding: 20px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #fff;
+  display: block;
+  transition: 0.3s;
+}
+.sidebar a:hover {
+  color: #f1f1f1;
+}
+.sidebar .closebtn {
+  position: absolute;
+  top: 60px;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+  cursor: pointer;
+}
+#main {
+  transition: margin-left 0.5s;
+}
+@media screen and (max-height: 450px) {
+  .sidebar {
+    padding-top: 15px;
+  }
+  .sidebar a {
+    font-size: 18px;
+  }
+}
+.dropdown-container {
+  display: none;
+  padding-left: 8px;
+}
+.dropdown-toggle {
+  float: right;
+  margin-right: 40px;
+}
+.drop {
+  cursor: pointer;
+}

@@ -1,0 +1,45 @@
+<div class="d-flex justify-content-center loading text-primary" *ngIf="loading else ordersTable">
+  <div class="spinner-border" role="status">
+    <span class="visually-hidden">Loading...</span>
+  </div>
+</div>
+<ng-template #ordersTable>
+  <div *ngIf="orders.order?.length == 0 else table" class="no-cart">
+    <div class="example-container shadow-lg p-3 mb-5 bg-body rounded">
+      <h1 class="text-center">Seems like you haven't ordered anything</h1>
+      <a routerLink="/product"><p class="btn btn-dark center">Shop Now</p></a>
+      <i class="bi bi-shop-window shop center"></i>
+    </div>
+  </div>
+  <ng-template #table>
+    <div
+    class="example-container shadow-lg p-3 mb-5 bg-body rounded"
+  >
+    <h1 class="jumbotron text-center sticky-top">Orders</h1>
+    <div class="scroll">
+      <h2 class="text-center">User Name: {{ orders.userName }}</h2>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Address</th>
+            <th>Price</th>
+            <th>Payment</th>
+            <th>Ordered</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let order of orders.order">
+            <td>{{ order.name }}</td>
+            <td [innerHTML]="order.address"></td>
+            <td>{{ order.totalPrice | currency: "INR":"symbol" }}</td>
+            <td>{{ order.pay }}</td>
+            <td>{{ order.dateTime }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  
+  </ng-template>  
+</ng-template>

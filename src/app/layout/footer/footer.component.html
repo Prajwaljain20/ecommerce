@@ -1,0 +1,12 @@
+<div class="footer bg-primary sticky-bottom text-center text-light">
+    <div class="text-center hstack gap-3 d-flex justify-content-center">
+    <span>&#169;</span>
+    <span>	<i (mouseenter)="brandFill=!brandFill" (mouseleave)="brandFill=!brandFill"
+        [ngClass]="{
+          'bi bi-bag-heart-fill': brandFill,
+          'bi bi-bag-heart': !brandFill
+        }"
+      >
+      </i> NG-CART</span>
+    </div>
+</div>

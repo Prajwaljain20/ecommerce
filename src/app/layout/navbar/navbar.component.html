@@ -1,0 +1,139 @@
+<nav class="navbar shadow fixed-top navbar-expand-lg navbar-dark bg-primary">
+  <div class="container-fluid">
+    <a
+      (mouseenter)="brandFill = true"
+      (mouseleave)="brandFill = false"
+      class="navbar-brand"
+      routerLink=""
+    >
+      <i
+        [ngClass]="{
+          'bi bi-bag-heart-fill': brandFill,
+          'bi bi-bag-heart': !brandFill
+        }"
+      >
+      </i>
+      Ng Cart</a
+    >
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav m-auto">
+        <div class="d-flex">
+          <input
+            class="form-control me-2"
+            type="search"
+            placeholder="Search"
+            aria-label="Search"
+            (keyup.enter)="productSearch($event)"
+          />
+          <button class="btn btn-warning">
+            <i class="bi bi-search"></i>
+          </button>
+        </div>
+      </ul>
+
+      <a routerLink="login" class="justify-content-center"
+        ><button class="btn btn-warning" type="submit" *ngIf="!user$">
+          Login
+        </button></a>
+
+      <ul class="nav justify-content-end">
+        <li class="nav-item">
+          <a
+            class="nav-link icon"
+            aria-current="page"
+            routerLink="wishlist"
+            (mouseenter)="wishlistFill = true"
+            (mouseleave)="wishlistFill = false"
+            data-bs-toggle="tooltip"
+            data-bs-placement="bottom"
+            title="Wishlist"
+          >
+            <i
+              [ngClass]="{
+                'bi bi-bookmark-fill': wishlistFill,
+                'bi bi-bookmark': !wishlistFill
+              }"
+            >
+            </i
+          ></a>
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link icon"
+            aria-current="page"
+            routerLink="cart"
+            (mouseenter)="fill = true"
+            (mouseleave)="fill = false"
+            data-bs-toggle="tooltip"
+            data-bs-placement="bottom"
+            title="Cart"
+          >
+            <i
+              [ngClass]="{
+                'bi bi-cart-fill': fill,
+                'bi bi-cart': !fill
+              }"
+            >
+              <span
+                class="position-absolute translate-middle p-1 badge pill rounded-pill bg-danger"
+              >
+                {{ pill }}
+                <span class="visually-hidden">unread messages</span>
+              </span>
+            </i></a
+          >
+        </li>
+        <li class="nav-item dropdown d-flex" *ngIf="user$">
+          <a
+            class="nav-link dropdown-toggle icon"
+            href="#"
+            id="navbarDropdown"
+            role="button"
+            aria-expanded="false"
+          >
+            <i class="bi bi-person-circle"></i>
+          </a>
+          <ul class="dropdown-menu">
+            <li class="user-name">
+              <div class="d-flex justify-content-center" *ngIf="smallLoader">
+                <div class="spinner-grow text-primary" role="status"></div>
+              </div>
+              <a class="dropdown-item text-center" *ngIf="!smallLoader">{{
+                currentUser?.name
+              }}</a>
+            </li>
+            <li><hr class="dropdown-divider" /></li>
+            <li class="dropdown-item hstack gap-1">
+              <i class="bi bi-journals"></i>
+              <div class="vr"></div>
+              <a class="text-dark link" routerLink="orders">Orders</a>
+            </li>
+            <li class="dropdown-item hstack gap-1" *ngIf="currentUser?.isAdmin">
+              <i class="bi bi-person-workspace"></i>
+              <div class="vr"></div>
+              <a class="text-dark link" routerLink="/admin-manage"
+                >Admin Panel</a
+              >
+            </li>
+            <li class="dropdown-item hstack gap-1" (click)="logout()">
+              <i class="bi bi-box-arrow-left"></i>
+              <div class="vr"></div>
+              <a class="text-dark link">Logout</a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

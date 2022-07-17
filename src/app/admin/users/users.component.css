@@ -1,0 +1,33 @@
+.example-container {
+  width: 95%;
+  min-height: 500px;
+  max-height: 500px;
+}
+.jumbotron {
+  margin-bottom: 60px;
+  font-size: 2em;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+}
+.scroll {
+  max-height: 350px;
+  overflow: scroll;
+}
+.right {
+  text-align: right;
+}
+th,
+td {
+  text-align: center;
+}
+a {
+  text-decoration: none;
+}
+.operation {
+  border-radius: 50px;
+  font-size: 20px;
+  margin: 0 15px;
+}
+
+.center {
+  margin-left: 44%;
+}

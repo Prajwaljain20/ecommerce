@@ -1,0 +1,22 @@
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-thumb {
+  border-radius: 100px;
+  background: blue;
+  border: 6px solid rgba(0, 0, 0, 0.2);
+}
+.loading {
+  position: fixed;
+  margin: 20% 40%;
+}

@@ -1,0 +1,52 @@
+<h1>Checkout</h1>
+<div class="example-container shadow-lg p-3 mb-5 bg-body rounded">
+  <h3 class="jumbotron text-center">Fill in the details</h3>
+  <div class="row scroll">
+    <div class="col-8">
+      <form [formGroup]="form" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <label for="exampleInputName">Full Name</label>
+          <input
+            type="text"
+            class="form-control"
+            formControlName="name"
+            maxlength="50"
+            placeholder="Enter your Full Name"/>
+        </div>
+        <div class="form-group">
+          <label for="exampleAddressName">Address</label>
+          <input
+            type="text"
+            class="form-control"
+            formControlName="address1"
+            placeholder="Address Lane 1"/>
+          <input
+            type="text"
+            class="form-control"
+            formControlName="address2"
+            placeholder="Address Lane 2"/>
+        </div>
+        <label for="input-state">Payment</label>
+        <div class="input-group">
+          <select
+            class="form-control center"
+            formControlName="payment"
+            id="input-state">
+            <option value="" disabled selected>Select a Payment Method</option>
+            <option value="Cash on Delivery">Cash on delivery</option>
+            <option value="Debit/Credit Card">Debit/Credit Card</option>
+            <option value="EMI">EMI</option>
+          </select>
+        </div>
+        <div class="d-flex justify-content-center">
+          <button
+            type="submit"
+            class="btn btn-primary login"
+            [disabled]="form.invalid">
+            Proceed
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
