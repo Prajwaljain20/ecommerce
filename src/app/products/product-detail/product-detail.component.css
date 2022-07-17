@@ -1,0 +1,25 @@
+img {
+  margin: 30px 20px;
+  border: 1px solid lightgray;
+  border-radius: 5px;
+  width: 300px;
+  height: 300px;
+}
+.heading {
+  margin: 30px 80px;
+}
+.cart {
+  margin: 0 5px;
+  border-radius: 50%;
+  font-size: 17px;
+}
+.wish {
+  margin: 0 50px;
+  display: inline-block;
+  border-radius: 50%;
+  font-size: 1.3em;
+}
+.description {
+  margin-top: 20px;
+  width: 300px;
+}

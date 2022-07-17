@@ -1,0 +1,47 @@
+<div class="example-container shadow-lg p-3 mb-5 bg-body rounded">
+  <h1>Login</h1>
+  <form [formGroup]="forms" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="exampleInputEmail1">Email address</label>
+      <input
+        type="email"
+        class="form-control"
+        formControlName="email"
+        placeholder="Enter email"/>
+    </div>
+    <div class="form-group">
+      <label for="exampleInputPassword1">Password</label>
+      <div class="input-group">
+        <input
+          [type]="hide ? 'password' : 'text'"
+          class="form-control"
+          id="exampleInputPassword1"
+          placeholder="Password"
+          formControlName="password"
+          aria-describedby="passwordHelp"/>
+        <div class="input-group-append">
+          <button
+            class="btn btn-outline-secondary"
+            type="button"
+            (click)="hide = !hide">
+            <i class="bi bi-eye-slash" *ngIf="hide"></i>
+            <i class="bi bi-eye" *ngIf="!hide"></i>
+          </button>
+        </div>
+      </div>
+      <small id="passwordHelp" class="form-text text-muted">Password</small>
+    </div>
+    <div class="d-flex justify-content-center">
+      <button
+        type="submit"
+        class="btn btn-primary login"
+        [disabled]="forms.invalid">
+        Login
+      </button>
+    </div>
+  </form>
+  <span class="d-flex justify-content-center">
+    New to our platform?
+    <a class="sign-up-link" routerLink="/sign-up">Sign up!</a>
+  </span>
+</div>

@@ -1,0 +1,113 @@
+<div class="example-container shadow-lg p-3 mb-5 bg-body rounded">
+  <h1>Sign Up</h1>
+  <form [formGroup]="forms" (ngSubmit)="onSubmit()">
+    <div
+      class="alert alert-danger"
+      *ngIf="forms.controls['name'].touched && forms.controls['name'].invalid">
+      <div *ngIf="forms.controls['name'].errors?.['required']">
+        Name is Required
+      </div>
+      <div *ngIf="forms.controls['name'].errors?.['minlength']">
+        Name should atleast be
+        {{forms.controls['name'].errors?.['minlength'].requiredLength}}
+        characters long
+      </div>
+      <div *ngIf="nameErrors?.['pattern']">Enter only alphabets</div>
+    </div>
+    <div
+      class="alert alert-danger"
+      *ngIf="forms.controls['email'].touched && forms.controls['email'].invalid">
+      <div *ngIf="emailErrors?.['required']">Email is Required</div>
+      <div *ngIf="emailErrors?.['email']">Make sure to enter Valid Email</div>
+    </div>
+    <div
+      class="alert alert-danger"
+      *ngIf="forms.controls['password'].touched && forms.controls['password'].invalid">
+      <div *ngIf="passwordErrors?.['required']">Please enter your Password</div>
+      <div *ngIf="passwordErrors?.['pattern']">
+        Make sure to enter Valid password
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="exampleInputName">Name</label>
+      <input
+        type="text"
+        class="form-control"
+        formControlName="name"
+        maxlength="20"
+        placeholder="Enter Name"/>
+    </div>
+    <div class="form-group">
+      <label for="exampleInputEmail1">Email address</label>
+      <input
+        type="email"
+        class="form-control"
+        formControlName="email"
+        placeholder="Enter email"/>
+    </div>
+    <div class="form-group">
+      <label for="exampleInputPassword1">Password</label>
+      <div class="input-group">
+        <input
+          [type]="hide ? 'password' : 'text'"
+          class="form-control"
+          id="exampleInputPassword1"
+          placeholder="Password"
+          formControlName="password"
+          aria-describedby="passwordHelp"/>
+        <div class="input-group-append">
+          <button
+            class="btn btn-outline-secondary"
+            type="button"
+            (click)="hide = !hide">
+            <i
+              [ngClass]="{
+                'bi bi-eye-slash': hide,
+                'bi bi-eye': !hide
+              }">
+            </i>
+          </button>
+        </div>
+      </div>
+      <small id="passwordHelp" class="form-text text-muted">
+        <ul>
+          <li
+            [ngClass]="{
+              line: password.length >= 8
+            }">
+            Min 8 characters long
+          </li>
+          <li
+            [ngClass]="{
+              line: !passwordErrors
+            }">
+            Atleast one special characters and one number and alphabet
+          </li>
+        </ul>
+      </small>
+    </div>
+    <div class="form-check">
+        <label class="switch">
+          <input type="checkbox" value="true" formControlName="admin" (click)="show()" />
+          <span class="slider round"></span>
+        </label>
+      <label class="form-check-label" for="flexCheckDefault"> Admin </label>
+    </div>
+    <div class="form-group" *ngIf="!hideAdmin">
+      <label class="form-check-label" for="adminCheck"> Key </label>
+      <input class="form-control" type="text" formControlName="key" />
+    </div>
+    <div class="d-flex justify-content-center">
+      <button
+        type="submit"
+        class="btn btn-primary login"
+        [disabled]="forms.invalid">
+        Sign Up
+      </button>
+    </div>
+  </form>
+  <span class="d-flex justify-content-center">
+    Already have a account?
+    <a class="sign-up-link" routerLink="/login">Login</a>
+    </span>
+</div>

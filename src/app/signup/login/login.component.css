@@ -1,0 +1,21 @@
+.sign-up-link {
+  font-size: 1.1rem;
+  margin-left: 8px;
+}
+.example-container {
+  margin: 0 0 0 30%;
+  width: 40%;
+  position: sticky;
+}
+label {
+  font-size: large;
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+.login {
+  margin: 20px 0;
+}
+input {
+  border: none;
+  border-bottom: 2px solid lightgrey;
+}
